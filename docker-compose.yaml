@@ -15,6 +15,7 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - backend-network
+    restart: always
 
   phpmyadmin:
     image: phpmyadmin
@@ -27,26 +28,28 @@ services:
     networks:
       - backend-network
       - frontend-network
+    restart: always
 
-  wordpress:
-    image: wordpress
+  prestashop:
+    image: prestashop/prestashop
     ports: 
       - 80:80
     depends_on:
       - "mysql"
     environment: 
-      - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
-      - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
-      - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
     volumes:
-      - wordpress_data:/var/www/html
+      - prestashop_data:/var/www/html
     networks:
       - backend-network
       - frontend-network
+    restart: always
 
 volumes:
   mysql_data:
-  wordpress_data:
+  prestashop_data:
 
 networks:
   backend-network:
