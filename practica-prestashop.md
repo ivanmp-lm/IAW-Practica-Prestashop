@@ -8,10 +8,10 @@ description: >-
 
 **DATOS DE LA MÁQUINA PARA SU REVISIÓN:**
 
-* **IP:** [**http://54.234.127.140/**](http://54.234.127.140/)
+* **IP:** [**http://100.26.169.2/**](http://100.26.169.2/)
 * **USUARIO PRESTASHOP:** admin@admin.com
 * **CLAVE PRESTASHOP:** adminpassword
-* **ACCESO PHPMYADMIN:** [**http://54.234.127.140:8080/**](http://54.234.127.140:8080/)
+* **ACCESO PHPMYADMIN:** [**http://100.26.169.2:8080/**](http://100.26.169.2:8080/)
 * **SERVIDOR MYSQL:** mysql
 * **USUARIO PHPMYADMIN:** pst\_user
 * **CLAVE PHPMYADMIN:** pst\_password
@@ -121,7 +121,7 @@ Donde "IDDOCKER" serán los dos primeros caracteres de la ID del contenedor \(ob
 
 ```text
 $ mysql -u root -p
-mysql> GRANT ALL PRIVILEGES ON prestashop.* TO 'pst_user'.'%';
+mysql> GRANT ALL PRIVILEGES ON prestashop.* TO 'pst_user'@'%';
 mysql> FLUSH PRIVILEGES;
 ```
 
